@@ -43,9 +43,10 @@ export class MovingPlatform {
     const newY = this.startY + this.distY * t;
 
     const body = this.body.body as Phaser.Physics.Arcade.Body;
+    const fps = 1000 / delta;
     body.setVelocity(
-      (newX - this.body.x) * 60,
-      (newY - this.body.y) * 60
+      (newX - this.body.x) * fps,
+      (newY - this.body.y) * fps
     );
   }
 }
