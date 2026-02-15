@@ -42,11 +42,17 @@ export class MovingPlatform {
     const newX = this.startX + this.distX * t;
     const newY = this.startY + this.distY * t;
 
+    // Directly set position instead of using velocity to avoid frame-rate jitter.
+    // Set velocity so standing players are carried along with the platform.
     const body = this.body.body as Phaser.Physics.Arcade.Body;
-    const fps = 1000 / delta;
+    const dt = delta / 1000;
     body.setVelocity(
-      (newX - this.body.x) * fps,
-      (newY - this.body.y) * fps
+      (newX - this.body.x) / dt,
+      (newY - this.body.y) / dt
     );
+    this.body.x = newX;
+    this.body.y = newY;
+    body.position.x = newX - body.halfWidth;
+    body.position.y = newY - body.halfHeight;
   }
 }
