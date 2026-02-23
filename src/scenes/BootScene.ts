@@ -20,7 +20,7 @@ export class BootScene extends Phaser.Scene {
     this.createHookTexture();
     this.createEliteGuardTextures();
     this.createBossTextures();
-    this.scene.start("GameScene");
+    this.scene.start("InstructionsScene");
   }
 
   private createLizardTextures() {

@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import { BootScene } from "./scenes/BootScene";
+import { InstructionsScene } from "./scenes/InstructionsScene";
 import { GameScene } from "./scenes/GameScene";
 
 const config: Phaser.Types.Core.GameConfig = {
@@ -15,7 +16,7 @@ const config: Phaser.Types.Core.GameConfig = {
       debug: false,
     },
   },
-  scene: [BootScene, GameScene],
+  scene: [BootScene, InstructionsScene, GameScene],
   pixelArt: true,
   scale: {
     mode: Phaser.Scale.FIT,
